@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class StringAddCalculator {
   public static int splitAndSum(String input) {
-    if (input == null || "".equals(input)) {
+    if (isEmpty(input)) {
       return 0;
     }
     String[] numbers = split(input);
@@ -32,9 +32,13 @@ public class StringAddCalculator {
     return numbers;
   }
 
+  private static boolean isEmpty(String input) {
+    return input == null || "".equals(input);
+  }
+
   private static void negativeCheck(int number) {
     if (number < 0) {
-      throw new RuntimeException();
+      throw new IllegalArgumentException();
     }
   }
 }
